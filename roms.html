@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Liquid ROM Builds</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#0b0b0b;
+color:white;
+overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+text-align:center;
+padding:80px 20px;
+}
+
+header h1{
+font-size:48px;
+color:#00d9ff;
+}
+
+header p{
+color:#aaa;
+margin-top:10px;
+}
+
+/* PARALLAX BACKGROUND */
+
+.parallax-bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:radial-gradient(circle at center,#00d9ff22,transparent);
+z-index:-3;
+}
+
+/* FLOATING SYMBOLS */
+
+.symbol{
+position:fixed;
+color:#00d9ff;
+opacity:0.3;
+font-size:28px;
+pointer-events:none;
+z-index:-2;
+}
+
+/* ROM GRID */
+
+.roms{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:30px;
+padding:80px 10%;
+}
+
+/* ROM CARD */
+
+.rom-card{
+background:#151515;
+border-radius:14px;
+overflow:hidden;
+transition:0.3s;
+position:relative;
+}
+
+/* IMAGE FULL THUMBNAIL */
+
+.rom-img{
+width:100%;
+height:auto;
+display:block;
+}
+
+/* CONTENT */
+
+.rom-content{
+padding:22px;
+}
+
+.rom-title{
+font-size:20px;
+color:#00d9ff;
+margin-bottom:10px;
+}
+
+.rom-desc{
+color:#bbb;
+margin-bottom:15px;
+}
+
+/* DETAILS */
+
+.details{
+font-size:14px;
+line-height:1.6;
+margin-bottom:15px;
+}
+
+.details span{
+color:#00d9ff;
+}
+
+/* BUTTONS */
+
+.links a{
+display:inline-block;
+margin:5px;
+padding:8px 14px;
+background:#00d9ff;
+color:black;
+border-radius:6px;
+text-decoration:none;
+font-size:14px;
+cursor:pointer;
+}
+
+/* POPUP GALLERY */
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:1000;
+}
+
+.popup-content{
+background:#111;
+padding:20px;
+border-radius:10px;
+max-width:800px;
+}
+
+.popup img{
+width:220px;
+margin:10px;
+border-radius:6px;
+}
+
+.close-btn{
+color:white;
+cursor:pointer;
+float:right;
+font-size:20px;
+}
+
+/* BACK */
+
+.back{
+text-align:center;
+padding:40px;
+}
+
+.back a{
+color:#00d9ff;
+text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="parallax-bg"></div>
+
+<!-- FLOATING SYMBOLS -->
+
+<div class="symbol">{ }</div>
+<div class="symbol">&lt;/&gt;</div>
+<div class="symbol">push</div>
+<div class="symbol">C++</div>
+<div class="symbol">when</div>
+
+<header>
+
+<h1>Liquid ROM Builds</h1>
+<p>Custom ROMs for Realme 9 SE</p>
+
+</header>
+
+
+<section class="roms">
+
+
+<!-- ROM CARD -->
+
+<div class="rom-card magnetic">
+
+<img class="rom-img"
+src="HorizonDroid/photo_6220033898369372255_y.jpg">
+
+<div class="rom-content">
+
+<div class="rom-title">
+HorizonDroid v5.4 Hyperion
+</div>
+
+<div class="rom-desc">
+Build for Realme 9 SE (ice)
+</div>
+
+<div class="details">
+<p><span>Maintainer:</span> @Liquid7z</p>
+<p><span>Version:</span> 15.0 | 17-06-2025</p>
+<p><span>Type:</span> Stable</p>
+<p><span>Variant:</span> GAPPS</p>
+</div>
+
+<div class="details">
+<p><span>Changelog</span></p>
+<p>• Initial Release</p>
+</div>
+
+<div class="details">
+<p><span>Notes</span></p>
+<p>• Report bugs with modules disabled</p>
+</div>
+
+<div class="links">
+
+<a href="https://t.me/liquid7zbuilds/3" target="_blank">
+Download ROM
+</a>
+
+<a onclick="openGallery('gallery1')">
+Screenshots
+</a>
+
+<a href="#">Recovery</a>
+
+<a href="#">KSU Boot</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- SECOND ROM -->
+
+<div class="rom-card magnetic">
+
+<img class="rom-img"
+src="AlphaDroid/alpha.jpg">
+
+<div class="rom-content">
+
+<div class="rom-title">
+AlphaDroid 3.2.1 - UNOFFICIAL
+</div>
+
+<div class="rom-desc">
+Latest update for Realme 9 SE
+</div>
+
+<div class="details">
+<p><span>Maintainer:</span> @Liquid7z</p>
+<p><span>Version:</span> 15.0 | Latest</p>
+<p><span>Type:</span> Stable</p>
+<p><span>Variant:</span> Vanilla</p>
+</div>
+
+<div class="details">
+<p><span>Changelog</span></p>
+<p>• Bug fixes</p>
+<p>• Performance improvements</p>
+<p>• Kernel 5.4.292</p>
+</div>
+
+<div class="links">
+
+<a href="https://t.me/liquid7zbuilds/4" target="_blank">
+Download ROM
+</a>
+
+<a onclick="openGallery('gallery2')">
+Screenshots
+</a>
+
+<a href="#">Recovery</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- POPUP GALLERY 1 -->
+
+<div id="gallery1" class="popup">
+<div class="popup-content">
+<span class="close-btn" onclick="closeGallery('gallery1')">✕</span>
+
+<img src="screenshots/rom1-1.jpg">
+<img src="screenshots/rom1-2.jpg">
+<img src="screenshots/rom1-3.jpg">
+
+</div>
+</div>
+
+
+<!-- POPUP GALLERY 2 -->
+
+<div id="gallery2" class="popup">
+<div class="popup-content">
+<span class="close-btn" onclick="closeGallery('gallery2')">✕</span>
+
+<img src="screenshots/rom2-1.jpg">
+<img src="screenshots/rom2-2.jpg">
+<img src="screenshots/rom2-3.jpg">
+
+</div>
+</div>
+
+
+<div class="back">
+<a href="projects.html">← Back to Projects</a>
+</div>
+
+
+<script>
+
+/* MAGNETIC CARDS */
+
+document.querySelectorAll(".magnetic").forEach(card=>{
+
+card.addEventListener("mousemove",e=>{
+
+const rect = card.getBoundingClientRect()
+
+const x = e.clientX - rect.left - rect.width/2
+const y = e.clientY - rect.top - rect.height/2
+
+card.style.transform =
+`translate(${x*0.2}px,${y*0.2}px) scale(1.03)`
+
+})
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="translate(0,0)"
+
+})
+
+})
+
+
+/* PARALLAX */
+
+document.addEventListener("mousemove",e=>{
+
+const x = (e.clientX/window.innerWidth)*100
+const y = (e.clientY/window.innerHeight)*100
+
+document.querySelector(".parallax-bg").style.background =
+`radial-gradient(circle at ${x}% ${y}%, #00d9ff22, transparent)`
+
+})
+
+
+/* FLOATING SYMBOLS */
+
+document.querySelectorAll(".symbol").forEach(el=>{
+
+el.style.left=Math.random()*100+"%"
+el.style.top=Math.random()*100+"%"
+
+let speed=1+Math.random()*2
+
+setInterval(()=>{
+
+let y=parseFloat(el.style.top)
+y-=0.05*speed
+
+if(y<-10) y=110
+
+el.style.top=y+"%"
+
+},16)
+
+})
+
+
+/* POPUP GALLERY */
+
+function openGallery(id){
+document.getElementById(id).style.display="flex"
+}
+
+function closeGallery(id){
+document.getElementById(id).style.display="none"
+}
+
+</script>
+
+</body>
+</html>
