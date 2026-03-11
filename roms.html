@@ -152,17 +152,20 @@ border-radius:10px;
 max-width:800px;
 }
 
-.popup img{
-width:220px;
-margin:10px;
-border-radius:6px;
+.popup-gallery{
+display:flex;
+gap:15px;
+overflow-x:auto;
+padding-top:10px;
+scroll-snap-type:x mandatory;
+scroll-behavior:smooth;
+}
 }
 
-.close-btn{
-color:white;
-cursor:pointer;
-float:right;
-font-size:20px;
+.popup-gallery img{
+height:400px;
+border-radius:8px;
+scroll-snap-align:center;
 }
 
 /* BACK */
@@ -267,11 +270,16 @@ Screenshots
 
 <div id="gallery1" class="popup">
 <div class="popup-content">
+
 <span class="close-btn" onclick="closeGallery('gallery1')">✕</span>
+
+<div class="popup-gallery">
 
 <img src="HorizonDroid/hd2.jpg">
 <img src="HorizonDroid/hd1.jpg">
 <img src="HorizonDroid/hd3.jpg">
+
+</div>
 
 </div>
 </div>
@@ -336,7 +344,10 @@ Screenshots
 
 <div id="gallery2" class="popup">
 <div class="popup-content">
+
 <span class="close-btn" onclick="closeGallery('gallery2')">✕</span>
+
+<div class="popup-gallery">
 
 <img src="AlphaDroid/alpha1.jpg">
 <img src="AlphaDroid/alpha2.jpg">
@@ -344,7 +355,7 @@ Screenshots
 <img src="AlphaDroid/alpha4.jpg">
 <img src="AlphaDroid/alpha5.jpg">
 <img src="AlphaDroid/alpha6.jpg">
-
+</div>
 
 </div>
 </div>
@@ -392,12 +403,17 @@ UNOFFICIAL | Android 15 | Realme 9 SE
 </div>
 
 <!--GALLERY RisingOS -->
-<div id="gallery3" class="popup">
+<div id="gallery2" class="popup">
 <div class="popup-content">
-<span class="close-btn" onclick="closeGallery('gallery3')">✕</span>
+
+<span class="close-btn" onclick="closeGallery('gallery2')">✕</span>
+
+<div class="popup-gallery">
 <img src="RisingOS/photo_6284781135946958070_y.jpg">
 <img src="RisingOS/r2.jpg">
 <img src="RisingOS/r3.jpg">
+</div>
+
 </div>
 </div>
 <!-- MistOS -->
@@ -428,6 +444,7 @@ Android 16 | Realme 9 SE
 <p><span>Kernel</span></p>
 <p> Upstream Kernel to 5.4.292</p>
 <p><span>Bugs:</span> Dual SIM not working</p>
+</div>
 <div class="links">
 
 <a href="#">Download</a>
@@ -440,15 +457,20 @@ Android 16 | Realme 9 SE
 </div>
 
 <!--GALLERY MistOS -->
-<div id="gallery5" class="popup">
+<div id="gallery1" class="popup">
 <div class="popup-content">
-<span class="close-btn" onclick="closeGallery('gallery5')">✕</span>
+
+<span class="close-btn" onclick="closeGallery('gallery1')">✕</span>
+
+<div class="popup-gallery">
 <img src="MistOS/mist1.jpg">
 <img src="MistOS/mist2.jpg">
 <img src="MistOS/mist3.jpg">
 <img src="MistOS/mist4.jpg">
 <img src="MistOS/mist5.jpg">
 <img src="MistOS/mist6.jpg">
+</div>
+
 </div>
 </div>
 
