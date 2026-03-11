@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Liquid Portfolio</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#0f0f0f;
+color:white;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 10%;
+background:#111;
+position:sticky;
+top:0;
+z-index:10;
+}
+
+nav h2{
+color:#00d9ff;
+}
+
+nav ul{
+display:flex;
+gap:20px;
+list-style:none;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#00d9ff;
+}
+
+/* HERO */
+
+.hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero h1{
+font-size:60px;
+opacity:0;
+}
+
+.hero p{
+margin-top:10px;
+color:#aaa;
+opacity:0;
+}
+
+.hero button{
+margin-top:30px;
+padding:12px 25px;
+border:none;
+background:#00d9ff;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* SECTION */
+
+section{
+padding:100px 10%;
+}
+
+/* ABOUT */
+
+.about{
+max-width:800px;
+margin:auto;
+text-align:center;
+line-height:1.7;
+}
+
+/* SKILLS */
+
+.skills{
+display:flex;
+flex-direction:column;
+gap:20px;
+margin-top:40px;
+max-width:500px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.skill-bar{
+background:#1c1c1c;
+border-radius:8px;
+padding:10px;
+}
+
+.skill-title{
+margin-bottom:6px;
+}
+
+.progress{
+height:8px;
+background:#333;
+border-radius:4px;
+overflow:hidden;
+}
+
+.progress-fill{
+height:100%;
+width:0;
+background:linear-gradient(90deg,#00d9ff,#00ffa2);
+}
+
+/* PROJECTS */
+
+.projects{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.project{
+width:260px;
+background:#1c1c1c;
+padding:25px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.project:hover{
+transform:translateY(-10px);
+background:#2a2a2a;
+}
+
+.project a{
+color:#00d9ff;
+text-decoration:none;
+font-size:14px;
+}
+
+/* EXPERIENCE */
+
+.timeline{
+max-width:600px;
+margin:auto;
+margin-top:40px;
+}
+
+.timeline-item{
+margin-bottom:30px;
+padding:20px;
+background:#1c1c1c;
+border-radius:8px;
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+margin-top:40px;
+}
+
+.contact a{
+display:inline-block;
+margin:10px;
+padding:10px 20px;
+border:1px solid #00d9ff;
+border-radius:6px;
+color:#00d9ff;
+text-decoration:none;
+}
+
+.contact a:hover{
+background:#00d9ff;
+color:black;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#888;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<h2>Liquid</h2>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+
+<section class="hero">
+
+<h1 class="hero-title">Hi, I'm Iftii</h1>
+<p class="hero-sub">Custom ROM Developer • Web Creator • Tech Enthusiast</p>
+
+<button onclick="location.href='#projects'">View My Work</button>
+
+</section>
+
+
+<section id="about">
+
+<div class="about">
+
+<h2>About Me</h2>
+
+<p>
+I'm a developer passionate about building Android custom ROMs, web applications,
+and interactive digital experiences. I enjoy combining technology and creativity
+to build modern, fast, and visually appealing software.
+</p>
+
+<h3 style="margin-top:40px;">Skills</h3>
+
+<div class="skills">
+
+<div class="skill-bar">
+<div class="skill-title">C++</div>
+<div class="progress"><div class="progress-fill cpp"></div></div>
+</div>
+
+<div class="skill-bar">
+<div class="skill-title">Android ROM Development</div>
+<div class="progress"><div class="progress-fill rom"></div></div>
+</div>
+
+<div class="skill-bar">
+<div class="skill-title">HTML / CSS</div>
+<div class="progress"><div class="progress-fill web"></div></div>
+</div>
+
+<div class="skill-bar">
+<div class="skill-title">JavaScript</div>
+<div class="progress"><div class="progress-fill js"></div></div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="projects">
+
+<h2 style="text-align:center;">Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+<h3>Realme 9 Se</h3>
+<p>Custom Android ROM optimized for performance and stability.</p>
+<a href="#">View Project</a>
+</div>
+
+
+<div class="project">
+<h3>Web Animation Assets</h3>
+<p>Reusable animation components for modern websites.</p>
+<a href="#">View Project</a>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="experience">
+
+<h2 style="text-align:center;">Experience</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>Android ROM Developer</h3>
+<p>Building custom Android ROMs, optimizing performance and adding features.</p>
+</div>
+
+<div class="timeline-item">
+<h3>Web Developer</h3>
+<p>Developing interactive websites and web apps using modern frameworks.</p>
+</div>
+
+<div class="timeline-item">
+<h3>Open Source Contributor</h3>
+<p>Sharing projects and collaborating with developers worldwide.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="contact">
+
+<div class="contact">
+
+<h2>Contact</h2>
+
+<a href="https://github.com/Liquid7z">GitHub</a>
+<a href="https://www.linkedin.com/in/iftiar-karim/">LinkedIn</a>
+<a href="https://t.me/liquid7z">Telegram</a>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Liquid. All rights reserved.
+</footer>
+
+
+<script>
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* HERO */
+
+gsap.to(".hero-title",{opacity:1,y:-10,duration:1});
+gsap.to(".hero-sub",{opacity:1,duration:1,delay:0.5});
+
+/* SKILLS */
+
+gsap.to(".cpp",{scrollTrigger:".skills",width:"10%",duration:2});
+gsap.to(".rom",{scrollTrigger:".skills",width:"60%",duration:2});
+gsap.to(".web",{scrollTrigger:".skills",width:"80%",duration:2});
+gsap.to(".js",{scrollTrigger:".skills",width:"45%",duration:2});
+
+/* PROJECTS */
+
+gsap.from(".project",{
+scrollTrigger:".projects",
+opacity:0,
+y:60,
+stagger:0.2
+});
+
+/* TIMELINE */
+
+gsap.from(".timeline-item",{
+scrollTrigger:".timeline",
+opacity:0,
+x:-80,
+stagger:0.3
+});
+
+</script>
+
+</body>
+</html>
