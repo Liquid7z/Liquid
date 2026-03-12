@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>RMX3461-ice Builds</title>
+<title>Liquid ROM Builds</title>
 
 <style>
 
@@ -75,8 +75,16 @@ padding:80px 10%;
 background:#151515;
 border-radius:14px;
 overflow:hidden;
-transition:0.3s;
+transition:.3s;
 position:relative;
+
+display:flex;
+flex-direction:column;
+}
+
+.rom-content{
+padding:22px;
+flex:1;
 }
 
 /* IMAGE FULL THUMBNAIL */
@@ -138,34 +146,52 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.8);
+background:rgba(0,0,0,0.85);
 display:none;
 align-items:center;
 justify-content:center;
 z-index:1000;
+animation:fadeIn .3s;
 }
 
 .popup-content{
 background:#111;
 padding:20px;
 border-radius:10px;
-max-width:800px;
+max-width:900px;
+max-height:90vh;
+overflow:auto;
 }
 
 .popup-gallery{
 display:flex;
-gap:15px;
+gap:12px;
 overflow-x:auto;
 padding-top:10px;
-scroll-snap-type:x mandatory;
-scroll-behavior:smooth;
 }
+.popup-gallery::-webkit-scrollbar{
+height:8px;
+}
+
+.popup-gallery::-webkit-scrollbar-thumb{
+background:#00d9ff;
+border-radius:4px;
 }
 
 .popup-gallery img{
-height:400px;
+height:420px;
 border-radius:8px;
-scroll-snap-align:center;
+cursor:pointer;
+transition:.3s;
+}
+
+.popup-gallery img:hover{
+transform:scale(1.05);
+}
+
+@keyframes fadeIn{
+from{opacity:0}
+to{opacity:1}
 }
 
 /* BACK */
@@ -178,6 +204,61 @@ padding:40px;
 .back a{
 color:#00d9ff;
 text-decoration:none;
+}
+
+.gallery-arrow{
+
+position:absolute;
+
+top:50%;
+
+transform:translateY(-50%);
+
+background:rgba(0,0,0,0.6);
+
+border:none;
+
+color:white;
+
+font-size:28px;
+
+padding:10px 14px;
+
+cursor:pointer;
+
+border-radius:6px;
+
+z-index:10;
+
+}
+
+.gallery-arrow:hover{
+background:#00d9ff;
+color:black;
+}
+
+.gallery-arrow.left{
+left:10px;
+}
+
+.gallery-arrow.right{
+right:10px;
+}
+
+.popup-content{
+position:relative;
+}
+
+.popup-gallery{
+
+display:flex;
+
+gap:12px;
+
+overflow:hidden;
+
+scroll-behavior:smooth;
+
 }
 
 </style>
@@ -201,10 +282,8 @@ text-decoration:none;
 
 <header>
 
-<h1>RMX3461 Builds (ice)</h1>
-<p>Custom ROMs for Realme 9 SE | All ROM's need F.06 Firmware</p>
-<p>Any queries contact me</p>
-
+<h1>Liquid ROM Builds</h1>
+<p>Custom ROMs for Realme 9 SE</p>
 
 </header>
 
@@ -269,9 +348,13 @@ Screenshots
 <!--GALLERY HorizonDroid -->
 
 <div id="gallery1" class="popup">
+
 <div class="popup-content">
 
 <span class="close-btn" onclick="closeGallery('gallery1')">✕</span>
+
+<button class="gallery-arrow left"
+onclick="scrollGallery('gallery1',-1)">❮</button>
 
 <div class="popup-gallery">
 
@@ -280,6 +363,9 @@ Screenshots
 <img src="HorizonDroid/hd3.jpg">
 
 </div>
+
+<button class="gallery-arrow right"
+onclick="scrollGallery('gallery1',1)">❯</button>
 
 </div>
 </div>
@@ -340,12 +426,14 @@ Screenshots
 
 
 
-<!--GALLERY AlphaDroid -->
-
 <div id="gallery2" class="popup">
+
 <div class="popup-content">
 
 <span class="close-btn" onclick="closeGallery('gallery2')">✕</span>
+
+<button class="gallery-arrow left"
+onclick="scrollGallery('gallery2',-1)">❮</button>
 
 <div class="popup-gallery">
 
@@ -355,7 +443,11 @@ Screenshots
 <img src="AlphaDroid/alpha4.jpg">
 <img src="AlphaDroid/alpha5.jpg">
 <img src="AlphaDroid/alpha6.jpg">
+
 </div>
+
+<button class="gallery-arrow right"
+onclick="scrollGallery('gallery2',1)">❯</button>
 
 </div>
 </div>
@@ -402,17 +494,26 @@ UNOFFICIAL | Android 15 | Realme 9 SE
 </div>
 </div>
 
-<!--GALLERY RisingOS -->
 <div id="gallery3" class="popup">
+
 <div class="popup-content">
 
 <span class="close-btn" onclick="closeGallery('gallery3')">✕</span>
 
+<button class="gallery-arrow left"
+onclick="scrollGallery('gallery3',-1)">❮</button>
+
 <div class="popup-gallery">
+
 <img src="RisingOS/photo_6284781135946958070_y.jpg">
-<img src="RisingOS/r2.jpg">
-<img src="RisingOS/r3.jpg">
+<img src="RisingOS/ris1.jpg">
+<img src="RisingOS/ris2.jpg">
+<img src="RisingOS/ris3.jpg">
+
 </div>
+
+<button class="gallery-arrow right"
+onclick="scrollGallery('gallery3',1)">❯</button>
 
 </div>
 </div>
@@ -438,17 +539,19 @@ Android 16 | Realme 9 SE
 <p><span>Type:</span> Stable</p>
 <p><span>Variant:</span> Vanilla</p>
 </div>
+
 <div class="details">
 <p><span>Changelog</span></p>
 <p>• Initial Release Build</p>
 <p><span>Kernel</span></p>
-<p> Upstream Kernel to 5.4.292</p>
+<p>Upstream Kernel to 5.4.292</p>
 <p><span>Bugs:</span> Dual SIM not working</p>
 </div>
+
 <div class="links">
 
 <a href="#">Download</a>
-<a onclick="openGallery('gallery5')">Screenshots</a>
+<a onclick="openGallery('galleryMist')">Screenshots</a>
 <a href="#">Recovery</a>
 
 </div>
@@ -456,25 +559,440 @@ Android 16 | Realme 9 SE
 </div>
 </div>
 
-<!--GALLERY MistOS -->
-<div id="gallery5" class="popup">
+<!-- GALLERY MistOS -->
+
+<div id="galleryMist" class="popup">
+
 <div class="popup-content">
 
-<span class="close-btn" onclick="closeGallery('gallery5')">✕</span>
+<span class="close-btn" onclick="closeGallery('galleryMist')">✕</span>
+
+<button class="gallery-arrow left"
+onclick="scrollGallery('galleryMist',-1)">❮</button>
 
 <div class="popup-gallery">
+
 <img src="MistOS/mist1.jpg">
 <img src="MistOS/mist2.jpg">
 <img src="MistOS/mist3.jpg">
 <img src="MistOS/mist4.jpg">
 <img src="MistOS/mist5.jpg">
-<img src="MistOS/mist6.jpg">
+
+
+</div>
+
+<button class="gallery-arrow right"
+onclick="scrollGallery('galleryMist',1)">❯</button>
+
+</div>
+
+</div>
+
+<!-- VoltageOS -->
+
+<div class="rom-card magnetic">
+
+<img class="rom-img" src="Volt/thumb.jpg">
+
+<div class="rom-content">
+
+<div class="rom-title">
+VoltageOS v5.0
+</div>
+
+<div class="rom-desc">
+UNOFFICIAL | Android 16
+</div>
+
+<div class="details">
+<p><span>Maintainer:</span> @Liquid7z</p>
+<p><span>Version:</span> 5.0 | 20250719</p>
+<p><span>Type:</span> Stable</p>
+<p><span>Variant:</span> Vanilla</p>
+</div>
+
+<div class="details">
+<p><span>Device Fixes</span></p>
+<p>• Fixed scrolling delay</p>
+<p>• Fixed USB tethering</p>
+<p>• Fixed HeyMelody crash</p>
+<p>• Fixed Dual SIM</p>
+</div>
+
+<div class="details">
+<p><span>Kernel</span></p>
+<p>• Kernel 5.4.292</p>
+<p>• Updated CLO drivers</p>
+</div>
+
+<div class="links">
+
+<a href="https://sourceforge.net/projects/rmx3461-ice/files/VoltageA16/voltage-5.0-ice-20250719-1346-UNOFFICIAL.zip/download">Download</a>
+
+<a onclick="openGallery('galleryVoltage5')">Screenshots</a>
+
+<a href="https://sourceforge.net/projects/rmx3461-ice/files/VoltageA16/VoltageRec.zip/download">Recovery</a>
+
+<a href="https://sourceforge.net/projects/rmx3461-ice/files/AlphaDroid/AK3_ksu_next_Unofficial_RMX3461_SM7325nika_KSU_12701_250630.zip/download">KSU Next</a>
+
+<a href="https://frost-onedrive.pages.dev/api/raw?path=/GApps/MindTheGapps-16.0.0-arm64-20250623_123933.zip">Gapps</a>
+
 </div>
 
 </div>
 </div>
 
+<!--GALLERY VoltageOS -->
 
+<div id="galleryVoltage5" class="popup">
+
+<div class="popup-content">
+
+<span class="close-btn" onclick="closeGallery('galleryVoltage5')">✕</span>
+
+<button class="gallery-arrow left"
+onclick="scrollGallery('galleryVoltage5',-1)">❮</button>
+
+<div class="popup-gallery">
+<img src="Volt/volt1.jpg">
+<img src="Volt/volt2.jpg">
+<img src="Volt/volt3.jpg">
+<img src="Volt/volt4.jpg">
+<img src="Volt/volt5.jpg">
+<img src="Volt/volt6.jpg">
+</div>
+
+<button class="gallery-arrow right"
+onclick="scrollGallery('galleryVoltage5',1)">❯</button>
+
+</div>
+</div>
+<!-- RisingOS Revived 8.0 -->
+
+<div class="rom-card magnetic">
+
+<img class="rom-img" src="RRevOS/thumb.jpg">
+
+<div class="rom-content">
+
+<div class="rom-title">
+RisingOS Revived 8.0 Zorya
+</div>
+
+<div class="rom-desc">
+UNOFFICIAL | Android 16
+</div>
+
+<div class="details">
+<p><span>Maintainer:</span> Liquid</p>
+<p><span>Version:</span> 8.0 Zorya</p>
+<p><span>Variant:</span> Gapps</p>
+</div>
+
+<div class="details">
+<p><span>Device</span></p>
+<p>• Initial Android 16 Build</p>
+</div>
+
+<div class="links">
+
+<a href="https://sourceforge.net/projects/rmx3461-ice/files/RisingOSREvivedv8/RisingOS_Revived-8.0-250801-0932-GAPPS-COMMUNITY-ice.zip/download">Download</a>
+
+<a onclick="openGallery('galleryRising8')">Screenshots</a>
+
+<a href="https://sourceforge.net/projects/rmx3461-ice/files/RisingOSREvivedv8/Recovery.zip/download">Recovery</a>
+
+<a href="https://sourceforge.net/projects/rmx3461-ice/files/AlphaDroid/AK3_ksu_next_Unofficial_RMX3461_SM7325nika_KSU_12701_250630.zip/download">KSU Next</a>
+
+</div>
+
+</div>
+</div>
+
+<!-- RRevOS Gallery -->
+
+<div id="galleryRising8" class="popup">
+
+<div class="popup-content">
+
+<span class="close-btn" onclick="closeGallery('galleryRising8')">✕</span>
+
+<button class="gallery-arrow left"
+onclick="scrollGallery('galleryRising8',-1)">❮</button>
+
+<div class="popup-gallery">
+
+<img src="RRevOS/rrv1.jpg">
+<img src="RRevOS/rrv2.jpg">
+<img src="RRevOS/rrv3.jpg">
+<img src="RRevOS/rrv4.jpg">
+<img src="RRevOS/rrv5.jpg">
+
+</div>
+
+<button class="gallery-arrow right"
+onclick="scrollGallery('galleryRising8',1)">❯</button>
+
+</div>
+</div>
+
+<!-- DerpFest 16 -->
+
+<div class="rom-card magnetic">
+
+<img class="rom-img" src="derp/thumb.jpg">
+
+<div class="rom-content">
+
+<div class="rom-title">
+DerpFest 16 Stable
+</div>
+
+<div class="rom-desc">
+UNOFFICIAL | Android 16
+</div>
+
+<div class="details">
+<p><span>Maintainer:</span> Liquid</p>
+<p><span>Version:</span> v16.0-20250828</p>
+<p><span>Variant:</span> Gapps</p>
+</div>
+
+<div class="details">
+<p><span>Highlights</span></p>
+<p>• Latest source sync</p>
+<p>• Updated IMS blobs</p>
+<p>• Kernel 5.4.293</p>
+</div>
+
+<div class="links">
+
+<a href="https://sourceforge.net/projects/rmx3461-ice/files/DerpFest/DerpFest-v16.0-20250828-ice-Unofficial-Stable.zip/download">Download</a>
+
+<a onclick="openGallery('galleryDerp')">Screenshots</a>
+
+<a href="https://sourceforge.net/projects/rmx3461-ice/files/DerpFest/Derp%20Recovery.zip/download">Recovery</a>
+
+</div>
+
+</div>
+</div>
+
+<!-- DerpFest Gallery -->
+
+<div id="galleryDerp" class="popup">
+
+<div class="popup-content">
+
+<span class="close-btn" onclick="closeGallery('galleryDerp')">✕</span>
+
+<button class="gallery-arrow left"
+onclick="scrollGallery('galleryDerp',-1)">❮</button>
+
+<div class="popup-gallery">
+
+<img src="derp/drp1.jpg">
+<img src="derp/drp2.jpg">
+<img src="derp/drp3.jpg">
+<img src="derp/drp4.jpg">
+<img src="derp/drp5.jpg">
+
+</div>
+
+<button class="gallery-arrow right"
+onclick="scrollGallery('galleryDerp',1)">❯</button>
+
+</div>
+</div>
+
+<!-- VoltageOS v5.2 -->
+
+<div class="rom-card magnetic">
+
+<img class="rom-img" src="Volt5.2/thumb.jpg">
+
+<div class="rom-content">
+
+<div class="rom-title">
+VoltageOS v5.2
+</div>
+
+<div class="rom-desc">
+UNOFFICIAL | Android 16
+</div>
+
+<div class="details">
+<p><span>Version:</span> 5.2 | 20251018</p>
+<p><span>Variant:</span> Vanilla</p>
+</div>
+
+<div class="links">
+
+<a href="https://sourceforge.net/projects/rmx3461-ice/files/Voltage5.2/voltage-5.2-ice-20251018-1605-UNOFFICIAL.zip/download">Download</a>
+
+<a href="https://sourceforge.net/projects/rmx3461-ice/files/VoltageA16/VoltageRec.zip/download">Recovery</a>
+<a onclick="openGallery('galleryVoltage52')">
+Screenshots
+</a>
+</div>
+
+</div>
+</div>
+
+<!-- VoltageOS v5.2 Gallery -->
+ <div id="galleryVoltage52" class="popup">
+
+<div class="popup-content">
+
+<span class="close-btn" onclick="closeGallery('galleryVoltage52')">✕</span>
+
+<button class="gallery-arrow left"
+onclick="scrollGallery('galleryVoltage52',-1)">❮</button>
+
+<div class="popup-gallery">
+
+<img src="Volt/volt1.jpg">
+<img src="Volt/volt2.jpg">
+<img src="Volt/volt3.jpg">
+<img src="Volt/volt4.jpg">
+<img src="Volt/volt5.jpg">
+<img src="Volt/volt6.jpg">
+
+</div>
+
+<button class="gallery-arrow right"
+onclick="scrollGallery('galleryVoltage52',1)">❯</button>
+
+</div>
+</div>
+
+<!-- Lunaris AOSP 3.6 -->
+
+<div class="rom-card magnetic">
+
+<img class="rom-img" src="Luna/photo_6208718437664623591_y.jpg">
+
+<div class="rom-content">
+
+<div class="rom-title">
+Lunaris AOSP 3.6
+</div>
+
+<div class="rom-desc">
+UNOFFICIAL | Android 16
+</div>
+
+<div class="details">
+<p><span>Maintainer:</span> Liquid</p>
+<p><span>Version:</span> 3.6 | 20251219</p>
+<p><span>Variant:</span> Gapps</p>
+<p><span>Sync:</span> Latest Source</p>
+</div>
+
+<div class="links">
+
+<a href="https://sourceforge.net/projects/rmx3461-ice/files/Lunaris-AOSP/Lunaris-AOSP-ice-Community-3.6-Core-2025121901.zip/download">Download</a>
+
+<a href="https://sourceforge.net/projects/rmx3461-ice/files/Lunaris-AOSP/LunaRec.zip/download">Recovery</a>
+
+<a onclick="openGallery('galleryLuna')">
+Screenshots
+</a>
+
+</div>
+
+</div>
+</div> <!-- FIX: close rom-card -->
+
+<!-- Gallery Lunaris -->
+
+<div id="galleryLuna" class="popup">
+
+<div class="popup-content">
+
+<span class="close-btn" onclick="closeGallery('galleryLuna')">✕</span>
+
+<button class="gallery-arrow left"
+onclick="scrollGallery('galleryLuna',-1)">❮</button>
+
+<div class="popup-gallery">
+
+<img src="Luna/luna1.jpg">
+<img src="Luna/luna2.jpg">
+
+</div>
+
+<button class="gallery-arrow right"
+onclick="scrollGallery('galleryLuna',1)">❯</button>
+
+</div>
+</div>
+
+
+
+<!-- Axion 2.4 SOLACE -->
+
+<div class="rom-card magnetic">
+
+<img class="rom-img" src="Axion/thumb.jpg">
+
+<div class="rom-content">
+
+<div class="rom-title">
+Axion 2.4 SOLACE
+</div>
+
+<div class="rom-desc">
+UNOFFICIAL | Android 16
+</div>
+
+<div class="details">
+<p><span>Maintainer:</span> @Liquid7z</p>
+<p><span>Version:</span> 2.4 SOLACE</p>
+<p><span>Variant:</span> Gapps / Vanilla</p>
+</div>
+
+<div class="links">
+
+<a href="https://sourceforge.net/projects/rmx3461-ice/files/AxionAOSP/axion-2.4-SOLACE-20260204-UNOFFICIAL-GMS-ice.zip/download">Download Gapps</a>
+
+<a href="https://sourceforge.net/projects/rmx3461-ice/files/AxionAOSP/axion-2.4-SOLACE-20260203-UNOFFICIAL-VANILLA-ice.zip/download">Download Vanilla</a>
+
+<a href="https://sourceforge.net/projects/rmx3461-ice/files/AxionAOSP/Axion_Recovery.zip/download">Recovery</a>
+
+<a onclick="openGallery('galleryAxion')">
+Screenshots
+</a>
+
+</div>
+
+</div>
+</div>
+
+<!-- Gallery Axion -->
+
+<div id="galleryAxion" class="popup">
+
+<div class="popup-content">
+
+<span class="close-btn" onclick="closeGallery('galleryAxion')">✕</span>
+
+<button class="gallery-arrow left"
+onclick="scrollGallery('galleryAxion',-1)">❮</button>
+
+<div class="popup-gallery">
+
+<img src="Axion/a1.jpg">
+<img src="Axion/a2.jpg">
+<img src="Axion/a3.jpg">
+
+</div>
+
+<button class="gallery-arrow right"
+onclick="scrollGallery('galleryAxion',1)">❯</button>
+
+</div>
+</div>
 
 
 </section>
@@ -555,6 +1073,33 @@ function closeGallery(id){
 document.getElementById(id).style.display="none"
 }
 
+/* close popup when clicking outside */
+
+document.querySelectorAll(".popup").forEach(popup=>{
+
+popup.addEventListener("click",e=>{
+
+if(e.target === popup){
+popup.style.display="none"
+}
+
+})
+
+})
+
+// Arrow Functionality
+function scrollGallery(id, direction){
+
+const popup = document.getElementById(id)
+
+const gallery = popup.querySelector(".popup-gallery")
+
+gallery.scrollBy({
+left:400 * direction,
+behavior:"smooth"
+})
+
+}
 </script>
 
 </body>
