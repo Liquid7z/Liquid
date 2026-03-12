@@ -1,365 +1,394 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
+
 <meta charset="UTF-8">
-<title>Projects</title>
+<title>Web Animation Assets</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 
 <style>
 
-/* ---------- BASE ---------- */
+/* BASE */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+font-family:Arial;
 }
 
 body{
-
-background:#070707;
-color:white;
-overflow:hidden;
-
-}
-
-/* ---------- PARALLAX BACKGROUND ---------- */
-
-.bg{
-
-position:fixed;
-top:0;
-left:0;
-
-width:120%;
-height:120%;
-
 background:
-radial-gradient(circle at 20% 30%, #00d9ff25, transparent 60%),
-radial-gradient(circle at 80% 70%, #00ffa225, transparent 60%);
+radial-gradient(circle at 20% 20%, #00d9ff15, transparent),
+radial-gradient(circle at 80% 80%, #00ffa215, transparent),
+#0f0f0f;
 
-filter:blur(120px);
-
-z-index:-1;
-
-transition:transform .2s;
-
+color:white;
 }
 
-/* ---------- HEADER ---------- */
+/* HEADER */
 
 header{
 text-align:center;
-padding:70px;
+padding:80px 20px;
 }
 
 header h1{
-
 font-family:'Orbitron';
-font-size:52px;
+font-size:48px;
 
 background:linear-gradient(90deg,#00d9ff,#00ffa2);
 -webkit-background-clip:text;
 color:transparent;
-
 }
 
-/* ---------- GALLERY ---------- */
+/* GRID */
 
-.gallery{
-
-display:flex;
-gap:60px;
-
-position:absolute;
-top:50%;
-
-transform:translateY(-50%);
-
-padding:40px;
-
+.assets{
+padding:80px 12%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:50px;
+align-items:start;
 }
 
-/* ---------- CARD ---------- */
+/* CARD */
 
 .card{
-
-width:340px;
-height:420px;
-
-background:rgba(255,255,255,0.06);
-
-backdrop-filter:blur(16px);
-
-border-radius:24px;
-
-border:1px solid rgba(255,255,255,0.15);
-
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(14px);
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.12);
 overflow:hidden;
 
-transition:.4s;
-
-transform-style:preserve-3d;
-
-box-shadow:
-0 30px 120px rgba(0,217,255,0.15);
-
+transition:transform .35s ease, box-shadow .35s ease;
+cursor:pointer;
+position:relative;
 }
 
-/* ---------- MEDIA ---------- */
+.card:hover{
+transform:translateY(-18px) scale(1.25);
+z-index:20;
+box-shadow:0 50px 180px rgba(0,217,255,0.45);
+}
 
-.card video,
-.card img{
+/* MEDIA */
 
+.media{
+position:relative;
+overflow:hidden;
+}
+
+.media img,
+.media video{
 width:100%;
-height:70%;
+height:180px;
 object-fit:cover;
-
+transition:transform .6s ease;
 }
 
-/* ---------- CONTENT ---------- */
+/* ZOOM */
 
-.content{
+.card:hover img,
+.card:hover video{
+transform:scale(1.15);
+}
+
+/* PREVIEW TAG */
+
+.preview{
+position:absolute;
+bottom:10px;
+right:10px;
+
+background:rgba(0,0,0,0.6);
+padding:6px 10px;
+
+font-size:12px;
+border-radius:6px;
+
+color:#00d9ff;
+
+opacity:0;
+transition:.3s;
+}
+
+.card:hover .preview{
+opacity:1;
+}
+
+/* CONTENT */
+
+.card-content{
 padding:18px;
 }
 
-.content h3{
-
+.card-content h3{
 color:#00d9ff;
 margin-bottom:6px;
-
 }
 
-.content p{
-
-font-size:14px;
-color:#aaa;
-margin-bottom:12px;
-
-}
-
-/* ---------- BUTTON ---------- */
-
-.btn{
-
-padding:8px 16px;
-
-background:#00d9ff;
-
-border-radius:6px;
-
-color:black;
-
-text-decoration:none;
-
+.card-content p{
 font-size:13px;
+color:#aaa;
+}
+
+/* MODAL */
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.9);
+
+display:none;
+
+align-items:center;
+justify-content:center;
+
+z-index:1000;
+}
+
+/* MODAL BOX */
+
+.modal-content{
+
+max-width:1000px;
+width:90%;
+
+background:#111;
+
+border-radius:12px;
+
+padding:25px;
+
+position:relative;
 
 }
 
-/* ---------- CARD HOVER ---------- */
+/* GRID */
 
-.card:hover{
+.modal-grid{
 
-box-shadow:
-0 40px 160px rgba(0,217,255,0.35);
+display:grid;
+grid-template-columns:1.2fr 1fr;
 
+gap:30px;
+align-items:center;
+
+}
+
+/* MEDIA */
+
+.modal-preview video,
+.modal-preview img{
+width:100%;
+border-radius:10px;
+}
+
+/* INFO */
+
+.modal-info h2{
+color:#00d9ff;
+margin-bottom:10px;
+}
+
+.modal-info p{
+color:#bbb;
+line-height:1.6;
+}
+
+/* TAGS */
+
+.tags{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin:10px 0;
+}
+
+.tag{
+background:#00d9ff22;
+border:1px solid #00d9ff;
+padding:4px 10px;
+border-radius:6px;
+font-size:12px;
+}
+
+/* CLOSE */
+
+.close{
+position:absolute;
+top:15px;
+right:20px;
+
+font-size:22px;
+cursor:pointer;
+color:#00d9ff;
+}
+
+footer{
+text-align:center;
+padding:60px;
+color:#777;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="bg" id="bg"></div>
-
 <header>
-<h1>Projects</h1>
+<h1>Web Animation Assets</h1>
 </header>
 
-<div class="gallery" id="gallery">
+<section class="assets">
 
-<!-- PROJECT -->
+<!-- CARD -->
 
-<div class="card">
+<div class="card"
+onclick="openModal(
+'Scroll Animation',
+['HTML','CSS','JS'],
+'GSAP scroll animation that reveals elements while scrolling.',
+'videos/scroll.mp4',
+'video'
+)">
+
+<div class="media">
 
 <video muted loop>
 <source src="videos/scroll.mp4">
 </video>
 
-<div class="content">
+<div class="preview">Preview</div>
+
+</div>
+
+<div class="card-content">
 
 <h3>Scroll Animation</h3>
-
-<p>Reusable GSAP scroll animation asset.</p>
-
-<a class="btn" href="#">View Project</a>
+<p>GSAP scroll animation asset.</p>
 
 </div>
 
 </div>
 
-<div class="card">
 
+<!-- CARD -->
+
+<div class="card"
+onclick="openModal(
+'Liquid Glass UI',
+['HTML','CSS'],
+'Apple VisionOS inspired glass UI component.',
+'images/glass.jpg',
+'image'
+)">
+
+<div class="media">
 <img src="images/glass.jpg">
+<div class="preview">Preview</div>
+</div>
 
-<div class="content">
-
-<h3>Glass UI</h3>
-
-<p>Liquid glass interface component.</p>
-
-<a class="btn" href="#">View Project</a>
-
+<div class="card-content">
+<h3>Liquid Glass UI</h3>
+<p>VisionOS glass style interface.</p>
 </div>
 
 </div>
 
-<div class="card">
+</section>
 
-<video muted loop>
-<source src="videos/button.mp4">
-</video>
 
-<div class="content">
+<!-- MODAL -->
 
-<h3>Magnetic Button</h3>
+<div class="modal" id="modal">
 
-<p>Interactive hover animation.</p>
+<div class="modal-content">
 
-<a class="btn" href="#">View Project</a>
+<span class="close" onclick="closeModal()">✕</span>
 
-</div>
+<div class="modal-grid">
 
-</div>
+<div class="modal-preview" id="modalMedia"></div>
 
-<div class="card">
+<div class="modal-info">
 
-<img src="images/particles.jpg">
+<h2 id="modalTitle"></h2>
 
-<div class="content">
+<div class="tags" id="modalTags"></div>
 
-<h3>Particle Background</h3>
-
-<p>Dynamic particle animation.</p>
-
-<a class="btn" href="#">View Project</a>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<video muted loop>
-<source src="videos/parallax.mp4">
-</video>
-
-<div class="content">
-
-<h3>Mouse Parallax</h3>
-
-<p>Interactive parallax animation.</p>
-
-<a class="btn" href="#">View Project</a>
+<p id="modalDesc"></p>
 
 </div>
 
 </div>
 
 </div>
+
+</div>
+
+<footer>
+© 2026 Liquid
+</footer>
 
 <script>
 
-/* ---------- VIDEO HOVER PLAY ---------- */
+/* VIDEO PREVIEW */
 
 document.querySelectorAll("video").forEach(v=>{
-
 v.addEventListener("mouseenter",()=>v.play())
-
 v.addEventListener("mouseleave",()=>{
-
 v.pause()
 v.currentTime=0
-
+})
 })
 
+/* MODAL */
+
+function openModal(title,tags,desc,src,type){
+
+const modal=document.getElementById("modal")
+const media=document.getElementById("modalMedia")
+
+document.getElementById("modalTitle").innerText=title
+document.getElementById("modalDesc").innerText=desc
+
+const tagBox=document.getElementById("modalTags")
+tagBox.innerHTML=""
+
+tags.forEach(t=>{
+tagBox.innerHTML+=`<span class="tag">${t}</span>`
 })
 
+if(type==="video"){
 
-/* ---------- INFINITE SCROLL ---------- */
+media.innerHTML=`
+<video controls autoplay>
+<source src="${src}">
+</video>`
 
-const gallery=document.getElementById("gallery")
+}else{
 
-let scroll=0
-
-function animate(){
-
-scroll+=0.4
-
-gallery.style.transform=
-`translateY(-50%) translateX(${-scroll}px)`
-
-if(scroll>gallery.scrollWidth/2){
-
-scroll=0
+media.innerHTML=`<img src="${src}">`
 
 }
 
-requestAnimationFrame(animate)
+modal.style.display="flex"
 
 }
 
-animate()
-
-
-/* ---------- CARD 3D TILT ---------- */
-
-document.querySelectorAll(".card").forEach(card=>{
-
-card.addEventListener("mousemove",e=>{
-
-const rect=card.getBoundingClientRect()
-
-const x=e.clientX-rect.left
-const y=e.clientY-rect.top
-
-const rx=(y/rect.height-.5)*10
-const ry=(x/rect.width-.5)*-10
-
-card.style.transform=
-`rotateX(${rx}deg) rotateY(${ry}deg) scale(1.05)`
-
-})
-
-card.addEventListener("mouseleave",()=>{
-
-card.style.transform="rotateX(0deg) rotateY(0deg)"
-
-})
-
-})
-
-
-/* ---------- CURSOR PARALLAX BACKGROUND ---------- */
-
-const bg=document.getElementById("bg")
-
-document.addEventListener("mousemove",e=>{
-
-const x=(window.innerWidth/2 - e.clientX)/40
-const y=(window.innerHeight/2 - e.clientY)/40
-
-bg.style.transform=`translate(${x}px,${y}px)`
-
-})
+function closeModal(){
+document.getElementById("modal").style.display="none"
+}
 
 </script>
 
 </body>
-
 </html>
