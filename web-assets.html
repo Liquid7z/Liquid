@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Projects</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ---------- BASE ---------- */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+
+background:#070707;
+color:white;
+overflow:hidden;
+
+}
+
+/* ---------- PARALLAX BACKGROUND ---------- */
+
+.bg{
+
+position:fixed;
+top:0;
+left:0;
+
+width:120%;
+height:120%;
+
+background:
+radial-gradient(circle at 20% 30%, #00d9ff25, transparent 60%),
+radial-gradient(circle at 80% 70%, #00ffa225, transparent 60%);
+
+filter:blur(120px);
+
+z-index:-1;
+
+transition:transform .2s;
+
+}
+
+/* ---------- HEADER ---------- */
+
+header{
+text-align:center;
+padding:70px;
+}
+
+header h1{
+
+font-family:'Orbitron';
+font-size:52px;
+
+background:linear-gradient(90deg,#00d9ff,#00ffa2);
+-webkit-background-clip:text;
+color:transparent;
+
+}
+
+/* ---------- GALLERY ---------- */
+
+.gallery{
+
+display:flex;
+gap:60px;
+
+position:absolute;
+top:50%;
+
+transform:translateY(-50%);
+
+padding:40px;
+
+}
+
+/* ---------- CARD ---------- */
+
+.card{
+
+width:340px;
+height:420px;
+
+background:rgba(255,255,255,0.06);
+
+backdrop-filter:blur(16px);
+
+border-radius:24px;
+
+border:1px solid rgba(255,255,255,0.15);
+
+overflow:hidden;
+
+transition:.4s;
+
+transform-style:preserve-3d;
+
+box-shadow:
+0 30px 120px rgba(0,217,255,0.15);
+
+}
+
+/* ---------- MEDIA ---------- */
+
+.card video,
+.card img{
+
+width:100%;
+height:70%;
+object-fit:cover;
+
+}
+
+/* ---------- CONTENT ---------- */
+
+.content{
+padding:18px;
+}
+
+.content h3{
+
+color:#00d9ff;
+margin-bottom:6px;
+
+}
+
+.content p{
+
+font-size:14px;
+color:#aaa;
+margin-bottom:12px;
+
+}
+
+/* ---------- BUTTON ---------- */
+
+.btn{
+
+padding:8px 16px;
+
+background:#00d9ff;
+
+border-radius:6px;
+
+color:black;
+
+text-decoration:none;
+
+font-size:13px;
+
+}
+
+/* ---------- CARD HOVER ---------- */
+
+.card:hover{
+
+box-shadow:
+0 40px 160px rgba(0,217,255,0.35);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="bg" id="bg"></div>
+
+<header>
+<h1>Projects</h1>
+</header>
+
+<div class="gallery" id="gallery">
+
+<!-- PROJECT -->
+
+<div class="card">
+
+<video muted loop>
+<source src="videos/scroll.mp4">
+</video>
+
+<div class="content">
+
+<h3>Scroll Animation</h3>
+
+<p>Reusable GSAP scroll animation asset.</p>
+
+<a class="btn" href="#">View Project</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="images/glass.jpg">
+
+<div class="content">
+
+<h3>Glass UI</h3>
+
+<p>Liquid glass interface component.</p>
+
+<a class="btn" href="#">View Project</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<video muted loop>
+<source src="videos/button.mp4">
+</video>
+
+<div class="content">
+
+<h3>Magnetic Button</h3>
+
+<p>Interactive hover animation.</p>
+
+<a class="btn" href="#">View Project</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="images/particles.jpg">
+
+<div class="content">
+
+<h3>Particle Background</h3>
+
+<p>Dynamic particle animation.</p>
+
+<a class="btn" href="#">View Project</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<video muted loop>
+<source src="videos/parallax.mp4">
+</video>
+
+<div class="content">
+
+<h3>Mouse Parallax</h3>
+
+<p>Interactive parallax animation.</p>
+
+<a class="btn" href="#">View Project</a>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* ---------- VIDEO HOVER PLAY ---------- */
+
+document.querySelectorAll("video").forEach(v=>{
+
+v.addEventListener("mouseenter",()=>v.play())
+
+v.addEventListener("mouseleave",()=>{
+
+v.pause()
+v.currentTime=0
+
+})
+
+})
+
+
+/* ---------- INFINITE SCROLL ---------- */
+
+const gallery=document.getElementById("gallery")
+
+let scroll=0
+
+function animate(){
+
+scroll+=0.4
+
+gallery.style.transform=
+`translateY(-50%) translateX(${-scroll}px)`
+
+if(scroll>gallery.scrollWidth/2){
+
+scroll=0
+
+}
+
+requestAnimationFrame(animate)
+
+}
+
+animate()
+
+
+/* ---------- CARD 3D TILT ---------- */
+
+document.querySelectorAll(".card").forEach(card=>{
+
+card.addEventListener("mousemove",e=>{
+
+const rect=card.getBoundingClientRect()
+
+const x=e.clientX-rect.left
+const y=e.clientY-rect.top
+
+const rx=(y/rect.height-.5)*10
+const ry=(x/rect.width-.5)*-10
+
+card.style.transform=
+`rotateX(${rx}deg) rotateY(${ry}deg) scale(1.05)`
+
+})
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="rotateX(0deg) rotateY(0deg)"
+
+})
+
+})
+
+
+/* ---------- CURSOR PARALLAX BACKGROUND ---------- */
+
+const bg=document.getElementById("bg")
+
+document.addEventListener("mousemove",e=>{
+
+const x=(window.innerWidth/2 - e.clientX)/40
+const y=(window.innerHeight/2 - e.clientY)/40
+
+bg.style.transform=`translate(${x}px,${y}px)`
+
+})
+
+</script>
+
+</body>
+
+</html>
